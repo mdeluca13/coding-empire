@@ -31,10 +31,6 @@ User.init(
         isEmail: true,
       },
     },
-    presenter: {
-        type:DataTypes.BOOLEAN,
-        allowNull: false,
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
