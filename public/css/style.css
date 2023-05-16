@@ -1,0 +1,91 @@
+@font-face {
+    font-family: EvilEmpire;
+    src: url(../../public/Fonts/Evil_Empire.otf);
+}
+
+body{
+    margin: 0;
+    background-color: #E5BA73 ;
+    /* padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px; */
+}
+
+.navbar{
+    padding: 0%;
+    text-align: center;
+    background-color: #FAF8F1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 25px;
+    padding-right: 25px;
+
+}
+
+.navbarHome{
+    display: flex;
+    text-align: center;
+    padding-right: 50px;
+}
+
+.mainLogo{
+    padding-right: 10px;
+}
+
+.navbarTitle{
+    font-family: EvilEmpire;  
+    font-size: 40px;
+    margin: 0%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.navbarSelection{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.navbarSelection p{
+    padding: 10px;
+    text-align: center;
+    font-family: EvilEmpire; 
+    font-size: 20px;
+}
+
+.events:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+    border-radius: 50px;
+}
+
+.upcoming:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+    border-radius: 50px;
+}
+
+.questions:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+    border-radius: 50px;
+}
+
+.signup:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+    border-radius: 50px;
+}
+
+/*<-----------Main------------> */
+
+main{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/*<-----------Footer------------> */
+.footer{
+    background-color: #FAF8F1;
+    padding-left: 25px;
+    padding-right: 25px;
+}
