@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
-<head>
+{{!-- <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
   <link rel="stylesheet" href="/css/jass.css">
-</head>
+</head> --}}
 
-<body>
+{{!-- <body>
   <header class="display-flex justify-space-between align-center p-2">
     <h1>
       User Registry
@@ -29,7 +29,7 @@
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}
-  </main>
+  </main> --}}
 
 
 <body>
@@ -50,20 +50,20 @@
                 Upcoming
             </p>
         </a>
-        {{/if loggedIn}}
+        {{#if loggedIn}}
             <a href="/views/login.html">
                 <p class="loggedIn">
                     Account
                 </p>
             </a>
-        {{#if}}
-        {{/else}}
+
+        {{else}}
         <a href="/views/login.html">
             <p class="signup">
                 Sign Up/Login
             </p>
         </a>
-        {{#else}}
+        {{/if}}
     </div>
 </container>
     </header>
