@@ -5,8 +5,18 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
     const talkData = await Talk.findAll( {
         attributes: ["talk_id", "name", "description", "date", "user_id"],
-        include: [{model: Question, attributes: ["question_id", "question", "created", "user_id", "talk_id"],
-                    include: {model: User, attributes: ["name"]},}]
+        include: [
+            {
+            model: User,
+            attributes: ['name'],
+            },
+            
+            {model: Question, 
+            attributes: 
+                ["question_id", "question", "created", "user_id", "talk_id"],
+            include: {model: User, 
+                attributes: 
+                ["name"]},}]
     }).catch((error) => {res.status(500).json(error)});
     const talk = talkData.map((talk) => talk.get({ plain: true }));
     console.log(talk)
@@ -16,15 +26,15 @@ router.get("/", async (req, res) => {
     })
 });
 
-// router.get("/login", (req, res) => {
+router.get("/login", (req, res) => {
     
-//     if (req.session.logged_in){
-//         res.redirect("/");
-//         return;
-//     }
+    if (req.session.logged_in){
+        res.redirect("/");
+        return;
+    }
 
-//     res.render("login");
+    res.render("login");
     
-// });
+});
 
 module.exports = router;
