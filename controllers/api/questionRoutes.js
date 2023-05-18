@@ -1,89 +1,46 @@
-const router = require('express').Router();
-const { Talk, User, Question } = require('../../models');
 
-router.get('/', async (req, res) => {
-    const questionData = await Question.findAll({
-        where: {
-            user_id: req.session.user_id,
-        },
-        include: [
-            {
-                model: User,
-                attributes: ['name'],
-            },
-            {
-                model: Talk,
-                attributes: ['talk_id'],
-            },
-        ],
-    }).catch((err) => {res.json(err)});
-    const questions = questionData.map((question) => question.get({ plain: true }));
+const router =  require("express").Router();
 
-    res.render('dashboard', {
-        questions,
-        logged_in: req.session.logged_in,
-    })
+const {Question} = require("../../models");
+
+const withAuth = require("../../utils/auth");
+
+
+router.get("/", (req, res) => {
+    Question.findAll().then((questiondData) => 
+        res.json(questiondData)).catch((error) => res.status(500).json(error));
 });
 
-router.get('/:id', async (req, res) => {
-    if (!req.session.logged_in) {
-        res.redirect('/user/login');
-    } else {
-        try {
-            const questionData = await Question.findByPk(req.params.id, {
-                include: [
-                    {
-                        model: User,
-                        attributes: ['name'],
-                    },
-                    {
-                        model: Talk,
-                        attributes: ['talk_id'],
-                    },
-                ],
-            });
-            res.status(200).json(questionData)
-        
-        } catch (err) {
-            console.log(err);
-            res.status(500).json(err);
-        };
-    };
-});
 
-router.post('/', async (req, res) => {
-    try { 
-        const questionData = await Question.create({
-        question: req.body.question,
-        user_id: req.session.user_id,
-        talk_id: req.body.talk_id,
-        })
-        res.status(200).json(questionData)
-    } catch (err) {
-        res.status(400).json(err);
-    }
-});
-
-router.put('/:id', (req, res) => {
-    Question.update(
-      {
+router.post("/", withAuth, (req, res) => {
+    Question.create({
         question: req.body.question,
         created: req.body.created,
-      },
-      {
-        where: {
-          question_id: req.params.id,
-        },
-      }
-    )
-    .then((updatedQuestion) => {res.json('Question Updated')}).catch((err) => res.json(err));});
+        user_id: req.body.user_id,
+        talk_id: req.body.talk_id
+    }).then ((questiondData) => res.json(questiondData))
+    .catch ((error) => {
+        res.status(500).json(error);
+    });
+});
 
-router.delete('/:id', (req, res) => {
-    Question.destroy({
+router.delete("/:id", withAuth, (req, res) => {
+    Question.destroy( {
         where: {
-            question_id: req.params.id,
+            id: req.params.id,
         },
     })
-    .then((deletedQuestion) => {res.json('Question Deleted')}).catch((err) => res.json(err));});
+    .then((delQuestiondData) => {
+        if (delQuestiondData){
+            res.json(delQuestiondData);
+        }
+
+        else {
+            res.status(404).json({message: "Not Found"});
+            return;
+        }
+    });
+});
+
 
 module.exports = router;
