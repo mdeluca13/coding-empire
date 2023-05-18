@@ -2,6 +2,14 @@
     font-family: EvilEmpire;
     src: url(../../public/Fonts/Evil_Empire.otf);
 }
+@font-face {
+    font-family: Merriweather;
+    src: url(../Fonts/MerriweatherSans-Regular.ttf);
+}
+
+h2{
+    margin: 0%;
+}
 
 body{
     margin: 0;
@@ -10,6 +18,10 @@ body{
     padding-left: 25px;
     padding-right: 25px; */
 }
+
+
+
+/*------------NavBar/Header------------*/
 
 .navbar{
     padding: 0%;
@@ -42,7 +54,7 @@ body{
 
 .navbarSelection{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
 }
 
 .navbarSelection p{
@@ -50,6 +62,11 @@ body{
     text-align: center;
     font-family: EvilEmpire; 
     font-size: 20px;
+    color: black;
+}
+
+a{
+    text-decoration: none;
 }
 
 .events:hover{
@@ -76,11 +93,49 @@ body{
     border-radius: 50px;
 }
 
+
+
 /*<-----------Main------------> */
 
 main{
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-top: 20px;
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+.postingArea{
+    background-color: #FAEAB1;
+    box-shadow: 6px 6px 10px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.postTitle{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+    font-family: evilEmpire;
+    border-bottom: solid;
+}
+
+.postQuestion p{ 
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Merriweather;
+    font-size: 20px;
+}
+
+.postAnswers{
+    padding-bottom: 20px;
+}
+
+.answersTitle{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    font-family: evilEmpire;
+    border-bottom: dashed;
 }
 
 /*<-----------Footer------------> */
@@ -88,4 +143,32 @@ main{
     background-color: #FAF8F1;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+.footerNavbar{
+    display: grid;
+    grid-template-rows: 2fr auto;
+}
+
+.upperFooter{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.footerBtn li{
+    list-style-type: none;
+    padding:10px;
+    font-family: EvilEmpire; 
+    font-size: 20px;
+}
+
+.footerBtn li:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+    border-radius: 50px;
+}
+
+.lowerFooter{
+    font-family: EvilEmpire; 
+    text-align: center;
 }

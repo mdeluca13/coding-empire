@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Empire</title>
     <link rel="stylesheet" href="../public/css/style.css">
+    <script src="../handlebars-v4.7.7.js"></script>
 </head>
 <body>
     <header class="header" id="header">
@@ -15,21 +16,77 @@
         <h1 class="navbarTitle">Coding Empire Conference</h1>
     </div>
     <div class="navbarSelection">
-        <p class="events">Past Events</p>
-        <p class="upcoming">Upcoming</p>
-        <p class="questions">Ask a Question</p>
-        <p class="signup">Sign Up/Login</p>
+        <a href="#">
+            <p class="events">
+                Past Events
+            </p>
+        </a>
+        <a href="#">
+            <p class="upcoming">
+                Upcoming
+            </p>
+        </a>
+        <a href="/views/login.html">
+            <p class="signup">
+                Sign Up/Login
+            </p>
+        </a>
     </div>
 </container>
     </header>
     <main class="main" id="main">
-        <h1>My<br>Name<br>Is<br>Davis</h1>
+        <script id="homeBody" type="text/x-handlebars-template" >
+            <ol>
+                {{#each events}}
+                <li>
+                    {{host}}
+                </li>
+                {{/each}}
+            </ol>
+        </script>
+        <script type="text/javascript">
+            let eventsArea = document.getElementById("homeBody").innerHTML;
+            let template = Handlebars.compile(eventsArea);
+            let data = template({
+                events: [
+                    {
+                        host: "Megan",
+                        subject: "Integration of Javascript in Everyday Lives",
+                        location:"EY Centre Hall One",
+                        time:"12pm - 1pm",
+                    },
+                    {
+                        host: "Davis",
+                        subject: "Use of HTML & CSS In Business",
+                        location:"EY Centre Hall Two",
+                        time:"12H30pm - 1pm",
+                    },
+                    {
+                        host: "Mat",
+                        subject: "Difference from ES5 to ES6",
+                        location:"EY Centre Hall Two",
+                        time:"1pm - 1H30pm",
+                    }
+                ]
+            });
+            document.getElementById("data").innerHTML += data;
+        </script>
     </main>
     <footer class="footer" id="footer">
         <container class="footerNavbar">
-            <div class="navbarHome">
-                <img src="../public/Images/sand-castle.svg" alt="Castle" class="mainLogo" width="40" height="70">
-                <h1 class="navbarTitle">Coding Empire Conference</h1>
+            <div class="upperFooter">
+                <div class="navbarHome">
+                    <img src="../public/Images/sand-castle.svg" alt="Castle" class="mainLogo" width="40" height="70">
+                    <h1 class="navbarTitle">Coding Empire Conference</h1>
+                </div>
+                <ul class="footerBtn">
+                    <li class="footerEvents">Past Events</li>
+                    <li class="footerUpcoming">Upcoming</li>
+                    <li class="footerSignup">Sign Up/Login</li>
+                </ul>
+            </div>
+            <div class="lowerFooter">
+                <p>&#169Copyright By Carleton BootCamp Student</p>
             </div>
         </container>
     </footer>
