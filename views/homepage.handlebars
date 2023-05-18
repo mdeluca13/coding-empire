@@ -11,15 +11,15 @@
 {{/each}} --}}
 
 <h2 class="card-header text-center">Talks</h2>
-{{#each talks as |talk|}}
-    <a href="/post/{{talk.talk_id}}" style="text-decoration:none">
+{{#each talk as |talk|}}
+    <a href="/api/talk/{{talk.talk_id}}" style="text-decoration:none">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="card col-9">
                     <h5 class="card-header" style="color:black">{{talk.name}}</h5>
                     <div class="card-body">
                         <h5 class="card-title" style="color:black">{{talk.description}}</h5>
-                        <p class="card-text" style="color:black">Posted By: {{talk.user.username}} on {{talk.created}}</p>
+                        <p class="card-text" style="color:black">Talk Given By: {{talk.user.name}} on {{talk.date}}</p>
                     </div>
                 </div> 
             </div>  

@@ -12,7 +12,8 @@ const loginFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/');
+        console.log('logged in')
       } else {
         alert(response.statusText);
       }
@@ -31,7 +32,8 @@ const signupFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/');
+        console.log('logged in')
       } else {
         alert(response.statusText);
       }
@@ -40,4 +42,4 @@ const signupFormHandler = async (event) => {
   
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
   
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+// document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
