@@ -25,11 +25,20 @@
                 Upcoming
             </p>
         </a>
+        {{/if loggedIn}}
+            <a href="/views/login.html">
+                <p class="loggedIn">
+                    Account
+                </p>
+            </a>
+        {{#if}}
+        {{/else}}
         <a href="/views/login.html">
             <p class="signup">
                 Sign Up/Login
             </p>
         </a>
+        {{#else}}
     </div>
 </container>
     </header>
