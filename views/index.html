@@ -1,37 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Empire</title>
     <link rel="stylesheet" href="../public/css/style.css">
+    <script src="../handlebars-v4.7.7.js"></script>
 </head>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registry</title>
-  <link rel="stylesheet" href="/css/jass.css">
-</head>
-
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      User Registry
-    </h1>
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-
-
 <body>
     <header class="header" id="header">
 <container class="navbar">
@@ -50,25 +26,51 @@
                 Upcoming
             </p>
         </a>
-        {{/if loggedIn}}
-            <a href="/views/login.html">
-                <p class="loggedIn">
-                    Account
-                </p>
-            </a>
-        {{#if}}
-        {{/else}}
         <a href="/views/login.html">
             <p class="signup">
                 Sign Up/Login
             </p>
         </a>
-        {{#else}}
     </div>
 </container>
     </header>
     <main class="main" id="main">
-        {{{body}}}
+        <script id="homeBody" type="text/x-handlebars-template" >
+            <ol>
+                {{#each events}}
+                <li>
+                    {{host}}
+                </li>
+                {{/each}}
+            </ol>
+        </script>
+        <script type="text/javascript">
+            let eventsArea = document.getElementById("homeBody").innerHTML;
+            let template = Handlebars.compile(eventsArea);
+            let data = template({
+                events: [
+                    {
+                        host: "Megan",
+                        subject: "Integration of Javascript in Everyday Lives",
+                        location:"EY Centre Hall One",
+                        time:"12pm - 1pm",
+                    },
+                    {
+                        host: "Davis",
+                        subject: "Use of HTML & CSS In Business",
+                        location:"EY Centre Hall Two",
+                        time:"12H30pm - 1pm",
+                    },
+                    {
+                        host: "Mat",
+                        subject: "Difference from ES5 to ES6",
+                        location:"EY Centre Hall Two",
+                        time:"1pm - 1H30pm",
+                    }
+                ]
+            });
+            document.getElementById("data").innerHTML += data;
+        </script>
     </main>
     <footer class="footer" id="footer">
         <container class="footerNavbar">
@@ -88,9 +90,5 @@
             </div>
         </container>
     </footer>
-    {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
 </body>
 </html>
-
