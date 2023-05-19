@@ -31,6 +31,7 @@ const signupFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.ok) {
+        console.log(response.password)
         document.location.replace('/');
         console.log('logged in')
       } else {
@@ -41,4 +42,4 @@ const signupFormHandler = async (event) => {
   
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
   
-// document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
