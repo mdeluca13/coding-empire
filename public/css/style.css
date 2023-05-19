@@ -1,10 +1,10 @@
 @font-face {
     font-family: EvilEmpire;
-    src: url(../../public/Fonts/Evil_Empire.otf);
+    src: url(/Fonts/Evil_Empire.otf);
 }
 @font-face {
     font-family: Merriweather;
-    src: url(../Fonts/MerriweatherSans-Regular.ttf);
+    src: url(/Fonts/MerriweatherSans-Regular.ttf);
 }
 
 h2{
