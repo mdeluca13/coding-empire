@@ -35,10 +35,13 @@
 <body>
     <header class="header" id="header">
 <container class="navbar">
+    <a href="/">
     <div class="navbarHome">
         <img src="/Images/sand-castle.svg" alt="Castle" class="mainLogo" width="40" height="70">
         <h1 class="navbarTitle">Coding Empire Conference</h1>
     </div>
+    </a>
+    
     <div class="navbarSelection">
         <a href="#">
             <p class="events">
@@ -50,16 +53,16 @@
                 Upcoming
             </p>
         </a>
-        {{#if loggedIn}}
-            <a href="/login">
-                <p class="loggedIn">
-                    Account
+        {{#if logged_in}}
+            <a href="/logout">
+                <p class="logged_in">
+                    Logout
                 </p>
             </a>
 
         {{else}}
         <a href="/login">
-            <p class="signup">
+            <p class="login">
                 Sign Up/Login
             </p>
         </a>
