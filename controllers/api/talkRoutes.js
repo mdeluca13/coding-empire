@@ -4,23 +4,8 @@ const { Talk, Question, User, Attend } = require("../../models");
 
 const withAuth = require("../../utils/auth");
 
-// router.get("/", (req, res) => {
-//     Talk.findAll( {
-//         attributes: ["talk_id", "name", "description", "date", "user_id"],
-//         include: [{model: Question, attributes: ["question_id", "question", "created", "user_id", "talk_id"],
-//                     include: {model: User, attributes: ["name"]},}]
-//     }).then ((talkData) => {
-//         res.json(talkData);
-//     }).catch((error) => {
-//         res.status(500).json(error);
-//     });
-// });
+router.get('/:id', withAuth, async (req, res) => {
 
-router.get('/:id', async (req, res) => {
-        // if (!req.session.logged_in) {
-        //     res.redirect('/login');
-        // } else {
-            // try {
                 const talkData = await Talk.findByPk(req.params.id, {
                     include: [
                         {
@@ -51,21 +36,6 @@ router.get('/:id', async (req, res) => {
                     talk,
                     logged_in: req.session.logged_in,
                 })
-
-                // console.log("talkdata ____________________________")
-                // console.log(talkData)
-            //     const talk = talkData.get({ plain: true });
-            //     res.render('talk', { talk, logged_in: req.session.logged_in });
-            //     res.status(200).json(talkData)
-
-            //     console.log(talkData)
-            //     console.log('____________________________________________________')
-            //     console.log(talk)
-            // catch (err) {
-            //     console.log(err);
-            //     res.status(500).json(err);
-            // };
-        // };
     });
 
 router.post("/", async (req, res) => {
