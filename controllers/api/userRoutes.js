@@ -6,10 +6,10 @@ router.post('/', async (req, res) => {
       const userData = await User.create(req.body);
   
       req.session.save(() => {
-        req.session.user_id = userData.id;
         req.session.logged_in = true;
-  
-        res.status(200).json(userData);
+        req.session.name = userData.name;
+        req.session.user_id = userData.user_id;
+        res.status(200).json({ user: userData, message: 'Login Success.' });
       });
     } catch (err) {
       res.status(400).json(err);
@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
   });
 
 router.post('/login', async (req, res) => {
-  console.log("testing login")
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
     console.log(userData)
