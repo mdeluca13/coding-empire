@@ -12,13 +12,17 @@
 {{/if}}
 
 {{#if talk.attends}}
-    {{#each talk.attends}}
         <h5>Attendance</h5>
-        <h5>{{user.name}}</h5>
-        {{#if (compare req.session.user_id attend.user_id)}}
-            <button>Remove yourself from attendance</button>
-        {{else}}
-            <button>Attend this talk</button>
-        {{/if}}
+    {{#each talk.attends}}
+        <h5>{{user.name}}{{user_id}}</h5>
     {{/each}}
 {{/if}}
+{{#each talk.attends}}
+        <h5>{{user_id}}</h5>
+{{/each}}
+{{!-- {{#if (compare user_id user.user_ud)}} --}}
+<p>userid: {{user_id}} attends {{#each talk.attends}}{{user_id}}{{/each}}</p>
+
+<button value="{{talk.talk_id}}" id="attend-btn">Attend this talk</button>
+
+<script src="/js/attend.js"></script>

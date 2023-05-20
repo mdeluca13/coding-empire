@@ -17,18 +17,18 @@ router.get('/', async (req, res) => {
         ],
     }).catch((err) => {res.json(err)});
     res.status(200).json(attendData);
+    console.log(attendData)
 });
 
 router.post('/', withAuth, async (req, res) => {
-  try {
+  
     const newAttend = await Attend.create({
       user_id: req.session.user_id,
+      talk_id: req.body.talk_id,
     });
 
-    res.status(200).json(newProject);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+    res.status(200).json(newAttend);
+  
 });
 
 router.delete('/:id', withAuth, async (req, res) => {

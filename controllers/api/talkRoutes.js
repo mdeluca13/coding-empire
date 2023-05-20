@@ -29,13 +29,23 @@ router.get('/:id', withAuth, async (req, res) => {
                             }
                         },
                     ],
-                }).catch((error) => {res.status(500).json(error)});
+                })
+                const userData = await User.findByPk(req.session.user_id, {
+                    attributes: { exclude: ['password'] },
+                    include: [{ model: Talk }],
+                  });
+              
+                const user = userData.get({ plain: true });
                 const talk = talkData.get({ plain: true });
                 console.log(talk)
+                console.log('_________________')
+                console.log(user)
                 res.render('talk', {
+                    ...user,
                     talk,
                     logged_in: req.session.logged_in,
                 })
+                // .catch((error) => {res.status(500).json(error)});
     });
 
 router.post("/", async (req, res) => {
