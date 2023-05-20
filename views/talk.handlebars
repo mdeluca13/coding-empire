@@ -14,15 +14,12 @@
 {{#if talk.attends}}
         <h5>Attendance</h5>
     {{#each talk.attends}}
-        <h5>{{user.name}}{{user_id}}</h5>
+        <h5>{{user.name}}</h5>
     {{/each}}
 {{/if}}
-{{#each talk.attends}}
-        <h5>{{user_id}}</h5>
-{{/each}}
-{{!-- {{#if (compare user_id user.user_ud)}} --}}
-<p>userid: {{user_id}} attends {{#each talk.attends}}{{user_id}}{{/each}}</p>
 
-<button value="{{talk.talk_id}}" id="attend-btn">Attend this talk</button>
+<button class="attend-btn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">Attend this Talk</button>
+
+<button id="{{talk.talk_id}}" name="{{user_id}}" title="{{#each talk.attends}}{{attend_id}},{{/each}}" value="{{#each talk.attends}}{{user_id}},{{/each}}"class="remove-attend-btn">No Longer Attend this Talk</button>
 
 <script src="/js/attend.js"></script>

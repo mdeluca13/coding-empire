@@ -22,7 +22,7 @@ router.get('/:id', withAuth, async (req, res) => {
                         },
                         {
                             model: Attend,
-                            attributes: ['user_id'],
+                            attributes: ['user_id', 'attend_id'],
                             include: {
                                 model: User,
                                 attributes: ['name'],
@@ -33,13 +33,27 @@ router.get('/:id', withAuth, async (req, res) => {
                 const userData = await User.findByPk(req.session.user_id, {
                     attributes: { exclude: ['password'] },
                     include: [{ model: Talk }],
-                  });
-              
+                });
+                const attendData = await Attend.findAll({
+                    where: {
+                        user_id: req.session.user_id,
+
+                    },
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['name'],
+                        },
+                    ],
+                })
+                const attend = attendData.map((attend) => attend.get({ plain: true }));
+                
                 const user = userData.get({ plain: true });
                 const talk = talkData.get({ plain: true });
                 console.log(talk)
                 console.log('_________________')
                 console.log(user)
+                console.log(attend)
                 res.render('talk', {
                     ...user,
                     talk,

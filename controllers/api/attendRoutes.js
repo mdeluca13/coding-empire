@@ -24,7 +24,7 @@ router.post('/', withAuth, async (req, res) => {
   
     const newAttend = await Attend.create({
       user_id: req.session.user_id,
-      talk_id: req.body.talk_id,
+      talk_id: req.body.talkId,
     });
 
     res.status(200).json(newAttend);
@@ -35,13 +35,12 @@ router.delete('/:id', withAuth, async (req, res) => {
   try {
     const attendData = await Attend.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+        attend_id: req.params.id,
       },
     });
-
+    console.log(attendData)
     if (!attendData) {
-      res.status(404).json({ message: 'Attendance found with this id!' });
+      res.status(404).json({ message: 'No attendance found with this id!' });
       return;
     }
 
