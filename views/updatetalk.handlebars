@@ -1,0 +1,27 @@
+{{!-- Update talk page --}}
+<h2 class="card-header text-center">Edit Your Talk</h2>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <label>Name of Talk</label>
+            <input id="update-name" class="form-control" type="text" id="title" value="{{talk.name}}">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <label>Description</label>
+            <input id="update-description" class="form-control" type="text" id="content" value="{{talk.description}}">
+        </div>
+    </div>
+    <div class="container-fluid" style="width: 30%">
+        <div class="row justify-content-center">
+            <button class="btn btn-dark talk-id" value="{{talk.talk_id}}"id="update-talk" >Update Talk</button>
+        </div>
+        <div class="row text-center">
+            <a href="/dashboard" class="talk-id" value="{{talk.talk_id}}" style="color:red" id="delete-btn">Delete Talk</a>
+        </div>
+    </div>
+</div>
+
+<script src="/js/updatetalk.js"></script>
+<script src="/js/deletetalk.js"></script>

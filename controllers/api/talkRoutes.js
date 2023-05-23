@@ -71,6 +71,30 @@ router.post("/", async (req, res) => {
     res.status(200).json(newTalk);
 });
 
+router.put('/:id', (req, res) => {
+    Talk.update(
+      {
+        name: req.body.name,
+        description: req.body.description,
+        created: req.body.created,
+      },
+      {
+        where: {
+          talk_id: req.params.id,
+        },
+      }
+    )
+    .then((updatedTalk) => {res.json('Talk Updated')}).catch((err) => res.json(err));});
+
+// Delete post
+router.delete('/:id', (req, res) => {
+    Talk.destroy({
+        where: {
+            talk_id: req.params.id,
+        },
+    })
+    .then((deletedTalk) => {res.json('Talk Deleted')}).catch((err) => res.json(err));});
+
 module.exports = router;
 
 
@@ -156,28 +180,4 @@ module.exports = router;
 //     };
 // });
 
-// router.put('/:id', (req, res) => {
-//     Talk.update(
-//       {
-//         name: req.body.name,
-//         description: req.body.description,
-//         created: req.body.created,
-//       },
-//       {
-//         where: {
-//           talk_id: req.params.id,
-//         },
-//       }
-//     )
-//     .then((updatedTalk) => {res.json('Talk Updated')}).catch((err) => res.json(err));});
 
-// // Delete post
-// router.delete('/:id', (req, res) => {
-//     Talk.destroy({
-//         where: {
-//             talk_id: req.params.id,
-//         },
-//     })
-//     .then((deletedTalk) => {res.json('Talk Deleted')}).catch((err) => res.json(err));});
-
-// module.exports = router;
