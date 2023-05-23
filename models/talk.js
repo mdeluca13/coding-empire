@@ -21,13 +21,9 @@ Talk.init(
       type: DataTypes.STRING,
     },
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    // time: {
-    //   type: DataTypes.TIME,
-    //   allowNull: false,
-    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

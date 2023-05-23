@@ -4,7 +4,7 @@ const createButton = document.getElementById("create");
 const createTalk = async (event) => {
     event.preventDefault();
 
-	let date = new Date().toJSON();
+	let date = "A Location, Date and Time will be assigned to this new talk soon."
 	console.log(date);
 
     const name = document.getElementById("talk-title").value;
@@ -22,7 +22,6 @@ const createTalk = async (event) => {
 
 		if (response.ok) {
 			document.location.replace('/dashboard');
-            alert('  talk created');
 		} else {
 			alert('Failed to create talk');
 		}

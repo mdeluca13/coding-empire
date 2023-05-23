@@ -1,4 +1,20 @@
-<h2> MY DASHBOARD </h2>
+<h2> MY TALKS </h2>
+
+{{#each talks as |talk|}}
+<a href="/dashboard/{{talk.talk_id}}" style="text-decoration:none">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="card col-9">
+                <h5 class="card-header" style="color:black">{{talk.name}}</h5>
+                <div class="card-body">
+                    <h5 class="card-title" style="color:black">{{talk.description}}</h5>
+                    <p style="color:black" >Where: {{talk.date}}</p>
+                </div>
+            </div> 
+        </div>  
+    </div>
+</a>
+{{/each}}
 
 <h3>Creating a New Talk:</h3>
 
