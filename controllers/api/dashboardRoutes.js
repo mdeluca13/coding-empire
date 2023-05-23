@@ -54,7 +54,7 @@ router.get('/:id', withAuth, async (req, res) => {
     console.log('_________________')
     console.log(user)
     console.log(attend)
-    res.render('talk', {
+    res.render('updatetalk', {
         ...user,
         talk,
         logged_in: req.session.logged_in,
