@@ -1,0 +1,18 @@
+<h2> MY DASHBOARD </h2>
+
+<h3>Creating a New Talk:</h3>
+
+<form> 
+    <label for="talks"> Please enter your talk Title </label>
+    <input type="text" id="talk-title"><br><br>
+    <label for= "talk-description"> plaese enter your talk description</label>
+    <input type="text" id = "talk-description"><br><br>
+    <button id="create" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">add talk</button>
+</form> 
+
+    
+
+
+    <script src = "/js/dashboard.js"> </script>
+
+

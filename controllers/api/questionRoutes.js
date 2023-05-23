@@ -12,16 +12,15 @@ router.get("/", (req, res) => {
 });
 
 
-router.post("/", withAuth, (req, res) => {
-    Question.create({
-        question: req.body.question,
-        created: req.body.created,
-        user_id: req.body.user_id,
-        talk_id: req.body.talk_id
-    }).then ((questiondData) => res.json(questiondData))
-    .catch ((error) => {
-        res.status(500).json(error);
+router.post('/', withAuth, async (req, res) => {
+  
+    const newQuestion = await Question.create({
+      ...req.body,
+      user_id: req.session.userId,
     });
+
+    res.status(200).json(newQuestion);
+  
 });
 
 router.delete("/:id", withAuth, (req, res) => {

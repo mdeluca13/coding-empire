@@ -1,4 +1,7 @@
 // const testingArray = document.querySelector('#testing').value
+
+const questionButton = document.getElementById("questions");
+
 const addAttendance = async (event) => {
     event.preventDefault();
     const array = event.target.value
@@ -84,3 +87,38 @@ const removeAttend = async (event) => {
 }
 
 document.querySelector('.remove-attend-btn').addEventListener('click', removeAttend);
+
+const askQuestions = async (event) => {
+    event.preventDefault();
+    //var texbox = document.createElement("question-box");
+    //texbox.setAttribute("type", "text");
+    //document.body.appendChild(texbox);
+
+    const questionEl = document.getElementById("question");
+
+    const question = questionEl.value;
+
+    const talk_id = document.getElementById("questions").title;
+
+
+    let created = new Date().toJSON();
+	console.log(created);
+
+    if (question) {
+        const response = await fetch('/api/questions/', {
+            method: 'POST',
+            body: JSON.stringify({ question, created, talk_id }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+    
+        if (response.ok) {
+            document.location.reload();
+            console.log('added a question')
+        } else {
+            alert(response.statusText);
+        }
+    }
+}
+
+questionButton.addEventListener("click", askQuestions);
+
