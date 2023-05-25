@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
     const talkData = await Talk.findAll( {
-        attributes: ["talk_id", "name", "description", "date", "user_id"],
+        attributes: ["talk_id", "name", "description", "date", "location", "user_id"],
         include: [
             {
             model: User,

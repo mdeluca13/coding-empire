@@ -3,15 +3,23 @@ module.exports = {
       return date.toLocaleTimeString();
     },
     format_date: (date) => {
-      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
-        new Date(date).getFullYear()
-      }`;
+      const format = require('date-fns/format')
+      if (date == null){
+        return "TBD";
+      }
+      else {
+        return format(new Date(date), "MMMM do', ' yyyy",);
+      }
+      
     },
-    compare: function (var1, var2) {
-        if (var1.includes(var2)) {
-          return true
-        } else {
-          return false
-        }
-    },
+    distance: (date) => {
+      const formatDistanceStrict = require('date-fns/formatDistanceStrict');
+      if (date == null){
+        return "TBD";
+      }
+      else {
+        return formatDistanceStrict(new Date(), date, {unit: 'day'});
+      }
+      
+    }
 };
