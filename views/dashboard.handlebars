@@ -1,7 +1,7 @@
-<h2> MY TALKS </h2>
+<h2 class="dashTitle"> MY TALKS </h2>
 
 {{#each talks as |talk|}}
-<a href="/api/dashboard/{{talk.talk_id}}" style="text-decoration:none">
+<a href="/api/dashboard/{{talk.talk_id}}" style="font-family:evilEmpire; font-size:larger;">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="card col-9">
@@ -21,14 +21,14 @@
 </a>
 {{/each}}
 
-<h3>Creating a New Talk:</h3>
+<h3 style="font-family:evilEmpire; border-bottom:solid black">Creating a New Talk:</h3>
 
 <form> 
-    <label for="talks"> Please enter your talk Title </label>
-    <input type="text" id="talk-title"><br><br>
-    <label for= "talk-description"> plaese enter your talk description</label>
-    <input type="text" id = "talk-description"><br><br>
-    <button id="create" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">add talk</button>
+    <label for="talks" style="font-family:Helveticaneue;"> Please enter your talk Title:</label>
+    <input type="text" id="talk-title" style="background-color:#FAEAB1; border:none; border-radius:50px; height: 20px"><br><br>
+    <label for= "talk-description" style="font-family:Helveticaneue;"> Please enter your talk description:<br></label>
+    <textarea type="text" id = "talk-description" style="background-color:#FAEAB1; border:none; border-radius:50px; height: 200px; width: 600px; padding-left:50px;"></textarea><br>
+    <button class="addTalkBtn" id="create" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">add talk</button>
 </form> 
 
     

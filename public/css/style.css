@@ -270,6 +270,30 @@ a div.postingArea:active{
     border: none;
 }
 
+/*<-----------DashBoard------------> */
+
+.dashTitle{
+    font-family: evilEmpire;
+    border-bottom:  solid black;
+}
+
+.addTalkBtn{    
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: #FAEAB1;
+    font-family: evilEmpire;
+    text-align: center;
+    border: none;
+    padding: 10px;
+}
+
+.addTalkBtn:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+}
+
+
+
 /*<-----------Talk Page------------> */
 
 .talkOverall{

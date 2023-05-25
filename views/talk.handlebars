@@ -1,5 +1,5 @@
-<h2>Talks</h2>
-<h5>{{talk.name}}</h5>
+<h2 style="font-family: evilEmpire; border-bottom:solid Black;">Talks</h2>
+<h2>{{talk.name}}</h2>
 <h5>{{talk.description}}</h5>
 <p>Talk will be given by: {{talk.user.name}}</p>
 {{#if talk.date}}
@@ -11,27 +11,27 @@
 
 {{#if talk.questions}}
     {{#each talk.questions}}
-        <h5>Question</h5>
+        <h2 style="text-decoration: underline;">Question</h2>
         <h5>{{question}}</h5>
         <p>Posted By: {{user.name}} on {{format_date created}}</p>
     {{/each}}
 {{/if}}
 
 <form> 
-    <label for="question"> Please ask your question </label>
-    <input type="text" id="question"><br><br>
-    <button id="questions" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{name}}">Ask a Question</button>
+    <label for="question"> Please ask your question <br> </label>
+    <input type="text" id="question" style="background-color:#FAEAB1; border:none; border-radius:50px; height: 30px; width: 600px; padding-left:20px;"><br><br>
+    <button id="questions" class="addTalkBtn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{name}}">Ask a Question</button>
 </form>
 
 {{#if talk.attends}}
-        <h5>Attendance</h5>
+        <h2 style="text-decoration: underline; padding-top: 20px;">Attendance</h2>
     {{#each talk.attends}}
         <h5>{{user.name}}</h5>
     {{/each}}
 {{/if}}
 
-<button class="attend-btn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">Attend this Talk</button>
+<button class="attend-btn addTalkBtn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">Attend this Talk</button>
 
-<button id="{{talk.talk_id}}" name="{{user_id}}" title="{{#each talk.attends}}{{attend_id}},{{/each}}" value="{{#each talk.attends}}{{user_id}},{{/each}}"class="remove-attend-btn">No Longer Attend this Talk</button>
+<button id="{{talk.talk_id}}" name="{{user_id}}" title="{{#each talk.attends}}{{attend_id}},{{/each}}" value="{{#each talk.attends}}{{user_id}},{{/each}}"class="remove-attend-btn addTalkBtn">No Longer Attend this Talk</button>
 
 <script src="/js/attend.js"></script>
