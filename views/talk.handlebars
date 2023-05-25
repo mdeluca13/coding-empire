@@ -1,13 +1,7 @@
 <h2>Talks</h2>
-    <div>
-        <h1 class="talkPageTitle">{{talk.name}}</h1>
-    </div>
- <div class="talkPageDetails">
-        <h3 class="talkPageDesc">{{talk.description}}</h3>
-        <p>Hosted By: {{talk.user.name}}</p>
-    </div>
-
-    
+<h5>{{talk.name}}</h5>
+<h5>{{talk.description}}</h5>
+<p>Talk will be given by: {{talk.user.name}}</p>
 {{#if talk.date}}
     <p style="color:black">Where: {{talk.location}} on {{format_date talk.date}}</p>
     <p style="color:black">Days until talk: {{distance talk.date}}</p>
@@ -15,64 +9,29 @@
     <p style="color:black">{{talk.location}}</p>
 {{/if}} 
 
- {{#if talk.questions}}
-            {{#each talk.questions}}
-                <button class="questionAccordion">Submit Your Questions Here</button>
-                <div class="questionArea">
-                    <input type="text" name="questionTextbox" id="questionTextbox" placeholder="Insert Your Question here!">
-                    <button id="questions" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{name}}">Ask a Question</button>
-                <div class="submittedQuestion">
-                        <div class="userImage">
-                            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="24" height="24" fill="none"/>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM11.9999 6C9.79077 6 7.99991 7.79086 7.99991 10C7.99991 12.2091 9.79077 14 11.9999 14C14.209 14 15.9999 12.2091 15.9999 10C15.9999 7.79086 14.209 6 11.9999 6ZM17.1115 15.9974C17.8693 16.4854 17.8323 17.5491 17.1422 18.1288C15.7517 19.2966 13.9581 20 12.0001 20C10.0551 20 8.27215 19.3059 6.88556 18.1518C6.18931 17.5723 6.15242 16.5032 6.91351 16.012C7.15044 15.8591 7.40846 15.7251 7.68849 15.6097C8.81516 15.1452 10.2542 15 12 15C13.7546 15 15.2018 15.1359 16.3314 15.5954C16.6136 15.7102 16.8734 15.8441 17.1115 15.9974Z" fill="#323232"/>
-                            </svg>
-                        </div>
-                        <div class="userCredential">
-                            <h3 >{{user.name}}</h3>
-                            <h5>{{created}}</h5>
-                            <h5>{{question}}</h5>
-                        </div>
-                    </div>
-                </div>
-            {{/each}}
-        {{/if}}
+{{#if talk.questions}}
+    {{#each talk.questions}}
+        <h5>Question</h5>
+        <h5>{{question}}</h5>
+        <p>Posted By: {{user.name}} on {{format_date created}}</p>
+    {{/each}}
+{{/if}}
 
-
-{{!-- <form> 
+<form> 
+    <label for="question"> Please ask your question </label>
     <input type="text" id="question"><br><br>
     <button id="questions" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{name}}">Ask a Question</button>
-</form> --}}
+</form>
 
-        {{#if talk.attends}}
-            {{#each talk.attends}}
-                <button class="questionAccordion">Attendance</button>
-                <ul class="attendees">
-                    <li>{{user.name}}</li>
-                </ul>
-                <button class="attend-btn attendBtn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">Attend this Talk</button>
-                <button id="{{talk.talk_id}}" name="{{user_id}}" title="{{#each talk.attends}}{{attend_id}},{{/each}}" value="{{#each talk.attends}}{{user_id}},{{/each}}"class="remove-attend-btn attendBtn">No Longer Attend this Talk</button>
+{{#if talk.attends}}
+        <h5>Attendance</h5>
+    {{#each talk.attends}}
+        <h5>{{user.name}}</h5>
+    {{/each}}
+{{/if}}
 
-            {{/each}}
-        {{/if}}
-    </div>
+<button class="attend-btn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">Attend this Talk</button>
 
-{{!-- <button class="attend-btn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">Attend this Talk</button> --}}
+<button id="{{talk.talk_id}}" name="{{user_id}}" title="{{#each talk.attends}}{{attend_id}},{{/each}}" value="{{#each talk.attends}}{{user_id}},{{/each}}"class="remove-attend-btn">No Longer Attend this Talk</button>
 
-{{!-- <button id="{{talk.talk_id}}" name="{{user_id}}" title="{{#each talk.attends}}{{attend_id}},{{/each}}" value="{{#each talk.attends}}{{user_id}},{{/each}}"class="remove-attend-btn">No Longer Attend this Talk</button> --}}
-
-    <script>
-        var acc = document.getElementsByClassName("questionAccordion");
-        var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>
+<script src="/js/attend.js"></script>
