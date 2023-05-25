@@ -9,11 +9,12 @@
     <p style="color:black">{{talk.location}}</p>
 {{/if}} 
 
+<h2 style="text-decoration: underline;">Question</h2>
 {{#if talk.questions}}
     {{#each talk.questions}}
-        <h2 style="text-decoration: underline;">Question</h2>
+        
         <h5>{{question}}</h5>
-        <p>Posted By: {{user.name}} on {{format_date created}}</p>
+        <p style="border-bottom:solid Black;">Posted By: {{user.name}} on {{format_date created}}</p>
     {{/each}}
 {{/if}}
 
