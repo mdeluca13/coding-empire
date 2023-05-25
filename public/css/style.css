@@ -269,6 +269,119 @@ a div.postingArea:active{
     margin-bottom: 5px;
     border: none;
 }
+
+/*<-----------Talk Page------------> */
+
+.talkOverall{
+    margin-bottom: 20px;
+    animation: up-fade 1s cubic-bezier(.25,.1,.25,1);
+}
+
+.talkPageTitle{
+    background-color: #C58940;
+    padding-top: 100px;
+    font-family: evilEmpire;
+    font-weight:100;
+    color: black;
+    padding-left: 20px;
+}
+
+.talkPageDetails{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.talkPageDesc{
+    font-size: 20px;
+}
+
+.talkPageUserArea h2{
+    font-family: EvilEmpire; 
+    font-size: 20px;
+}
+
+.questionAccordion{
+    font-family: EvilEmpire; 
+    font-size: 20px;
+    background-color: #C58940;
+    color: #444;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.active, .questionAccordion:hover { 
+    color: white;
+}
+
+.questionArea{
+    display: none;
+    background-color: #E5BA73;
+    overflow: hidden;
+}
+
+.submittedQuestion{
+    padding-top: 20px;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 13fr;
+}
+
+#questionTextbox{
+    width: 817px;
+    height: 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #FAEAB1;
+    font-family: HelveticaNeue;
+}
+
+#questionTextbox::placeholder{
+    padding-left: 10px;
+}
+
+.userCredential{
+    padding-bottom: 20px;
+}
+
+.userCredential h3{
+    font-family: evilEmpire;
+    font-size: large;
+}
+
+.userCredential h5{
+    font-family: HelveticaNeue;
+}
+
+.attendees{
+    list-style-type: disc;
+    font-family: evilEmpire;
+    display: none;
+    background-color: #E5BA73;
+    overflow: hidden;
+}
+
+.attendBtn{
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: #FAEAB1;
+    font-family: evilEmpire;
+    text-align: center;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 300px;
+}
+
+.attendBtn:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+}
+
 /*<-----------Footer------------> */
 .footer{
     background-color: #FAF8F1;
@@ -295,6 +408,22 @@ ul{
     padding:10px;
     font-family: EvilEmpire; 
     font-size: 20px;
+}
+
+a.dashboard{
+    width: 80%;
+    font-family: evilEmpire;
+    padding-left: 10px;
+}
+
+.dashboard:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+    border-radius: 50px;
+}
+
+p#logout.login{
+    font-family: evilEmpire;
 }
 a {
     color: black;
