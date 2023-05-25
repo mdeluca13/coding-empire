@@ -10,20 +10,18 @@
 </div>
 {{/each}} --}}
 
-<h2 class="card-header text-center">Talks</h2>
+<h1 class="homepageTitle">Talks</h2>
 {{#each talk as |talk|}}
-    <a href="/api/talk/{{talk.talk_id}}" style="text-decoration:none">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="card col-9">
-                    <h5 class="card-header" style="color:black">{{talk.name}}</h5>
-                    <div class="card-body">
-                        <h5 class="card-title" style="color:black">{{talk.description}}</h5>
-                        <p class="card-text" style="color:black">Talk Given By: {{talk.user.name}}</p>
-                        <p style="color:black">Where: {{talk.date}}</p>
-                    </div>
-                </div> 
-            </div>  
+  <a href="/api/talk/{{talk.talk_id}}" class="">
+    <div class="postingArea">
+      <h3 class="postTitle" style="color:black">{{talk.name}}</h3>
+      <div class="card-body">
+        <h5 class="postQuestion" style="color:black">{{talk.description}}</h5>
+        <div class="talkDetails">
+          <p>{{talk.user.name}}</p>
+          <p>{{talk.date}}</p>
         </div>
-    </a>
+      </div>
+    </div> 
+  </a>
 {{/each}}
