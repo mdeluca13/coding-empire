@@ -23,7 +23,7 @@ const talkData = [
         "user_id": 3
     },
     {
-        "name": "How to keep your mind and body healthy while coding.",
+        "name": "How to keep your mind and body healthy while coding",
         "description": "Coding takes a toll on your mind and body, this talk discusses best practices on how to keep healthy while sitting and staring at a computer.",
         "date": "July 4, 2023",
         "location": "2pm in the Main Hall",
