@@ -9,66 +9,38 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-{{!-- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registry</title>
-  <link rel="stylesheet" href="/css/jass.css">
-</head> --}}
-
-{{!-- <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      User Registry
-    </h1>
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main> --}}
-
-
 <body>
+    {{!-- header section --}}
     <header class="header" id="header">
-<container class="navbar">
-    <a href="/">
-    <div class="navbarHome">
-        <img src="/Images/sand-castle.svg" alt="Castle" class="mainLogo" width="40" height="70">
-        <h1 class="navbarTitle">Coding Empire Conference</h1>
-    </div>
-    </a>
-    
-    <div class="navbarSelection">
-
-        {{#if logged_in}}
-                <a href="/dashboard">
-                 <p id="dash" class="logout">
-                    DASHBOARD
-                </p>
+        <container class="navbar">
+            <a href="/">
+                <div class="navbarHome">
+                    <img src="/Images/sand-castle.svg" alt="Castle" class="mainLogo" width="40" height="70">
+                    <h1 class="navbarTitle">Coding Empire Conference</h1>
+                </div>
             </a>
-            <p id="logout" class="logout">
-                    Logout
-             </p>
-                
             
-
-        {{else}}
-        <a href="/login">
-            <p class="login">
-                Sign Up/Login
-            </p>
-        </a>
-        {{/if}}
-    </div>
-</container>
+            <div class="navbarSelection">
+                {{#if logged_in}}
+                    <a href="/dashboard">
+                        <p id="dash" class="logout">DASHBOARD</p>
+                    </a>
+                    <p id="logout" class="logout">LOGOUT</p>
+                {{else}}
+                <a href="/login">
+                    <p class="login">SIGN-UP/LOGIN</p>
+                </a>
+                {{/if}}
+            </div>
+        </container>
     </header>
+
+    {{!-- adding main section for handlebars to render --}}
     <main class="main" id="main">
         {{{body}}}
     </main>
+
+    {{!-- footer --}}
     <footer class="footer" id="footer">
         <container class="footerNavbar">
             <div class="upperFooter">
@@ -78,30 +50,19 @@
                 </div>
                 <ul class="footerBtn">
                     {{#if logged_in}}
-                <li>
-                    <a href="/dashboard" class="dashboard">
-                 <p id="dash">
-                    DASHBOARD
-                </p>
-                </a>
-            </li>
-            <li>
-                <p id="logout" class="logout">
-                    Logout
-             </p>
-            </li>
-            
-                
-            
-
-        {{else}}
-        <li>
-            <a href="/login">
-                Sign Up/Login
-            </a>
-        </li>
-        
-        {{/if}}
+                    <li>
+                        <a href="/dashboard" class="dashboard">
+                            <p id="dash">DASHBOARD</p>
+                        </a>
+                    </li>
+                    <li>
+                        <p id="logout" class="logout">LOGOUT</p>
+                    </li>
+                    {{else}}
+                    <li>
+                        <a href="/login">SIGN-UP/LOGIN</a>
+                    </li>
+                    {{/if}}
                 </ul>
             </div>
             <div class="lowerFooter">
@@ -110,8 +71,8 @@
         </container>
     </footer>
     {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+        <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
 

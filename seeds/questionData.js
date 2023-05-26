@@ -1,3 +1,4 @@
+// Question data to seed
 const { Question } = require('../models');
 
 const questionData = [

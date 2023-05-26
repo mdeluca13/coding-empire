@@ -1,5 +1,7 @@
+{{!-- dashboard with logged in talks --}}
 <h2 class="dashTitle"> MY TALKS </h2>
 
+{{!-- listing talks --}}
 {{#each talks as |talk|}}
 <a href="/api/dashboard/{{talk.talk_id}}" style="font-family:evilEmpire; font-size:larger;">
     <div class="container-fluid">
@@ -21,8 +23,8 @@
 </a>
 {{/each}}
 
+{{!-- add a new talk --}}
 <h3 style="font-family:evilEmpire; border-bottom:solid black">Creating a New Talk:</h3>
-
 <form> 
     <label for="talks" style="font-family:Helveticaneue;"> Please enter your talk Title:</label>
     <input type="text" id="talk-title" style="background-color:#FAEAB1; border:none; border-radius:50px; height: 20px"><br><br>

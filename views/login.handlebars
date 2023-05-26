@@ -1,47 +1,46 @@
+{{!-- Login Section --}}
 <div class="loginSignup">
     <div class="loginArea">
         <h2 class="loginTitle">Login</h2>
         <div class="loginInput">
-            {{!-- <label for="email-login">email:</label> --}}
             <input class="form-input login-form" type="email" id="email-login" placeholder="Email" />
         </div>
         <div class="passwordInput">
-            {{!-- <label for="password-login">password:</label> --}}
             <input class="form-input" type="password" id="password-login" placeholder="Password" />
         </div>
         <input type="submit" class="loginSubmit" placeholder="Login">
     </div>
+
+    {{!-- Signup section --}}
         <div class="SignupArea">
         <h2 class="loginTitle">Sign-Up</h2>
         <form class="form signup-form container-fluid">
             <div class="form-group">
-                    
-                            <div class="nameSignupInput">
-                                <input type="name" class="form-control" id="name-signup" placeholder="Enter name">
-                            </div>
-                    
+                <div class="nameSignupInput">
+                    <input type="name" class="form-control" id="name-signup" placeholder="Enter name">
                 </div>
-                <div class="form-group">
-                    <div class="emailSignupInput">
-                        {{!-- <label >email</label> --}}
-                        <input type="email" class="form-control" id="email-signup" placeholder="Enter email">
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class="emailSignupInput">
+                    <input type="email" class="form-control" id="email-signup" placeholder="Enter email">
                 </div>
-                <div class="form-group">
-                    <div class="passwordSignupInput">
-                        <label for="exampleInputPassword1" class="exampleInputPassword">Password</label>
-                        <input type="password" class="form-control" id="password-signup" placeholder="Password">
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class="passwordSignupInput">
+                    <label for="exampleInputPassword1" class="exampleInputPassword">Password</label>
+                    <input type="password" class="form-control" id="password-signup" placeholder="Password">
                 </div>
-                <div class="container-fluid" style="width: 30%">
-                    <div class="row justify-content-center">
-                        <button type="submit" class="loginSubmit" id="signup-btn">Sign-Up</button>
-                    </div>
+            </div>
+            <div class="container-fluid" style="width: 30%">
+                <div class="row justify-content-center">
+                    <button type="submit" class="loginSubmit" id="signup-btn">Sign-Up</button>
                 </div>
+            </div>
         </form>
     </div>
-    <script src="/js/login.js"></script>
 </div>
 
+{{!-- adding js --}}
+<script src="/js/login.js"></script>
 
 

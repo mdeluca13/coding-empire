@@ -1,3 +1,4 @@
+{{!-- individual talk page --}}
 <h2 style="font-family: evilEmpire; border-bottom:solid Black;">Talks</h2>
 <h2>{{talk.name}}</h2>
 <h5>{{talk.description}}</h5>
@@ -9,30 +10,31 @@
     <p style="color:black">{{talk.location}}</p>
 {{/if}} 
 
+{{!-- question section --}}
 <h2 style="text-decoration: underline;">Question</h2>
 {{#if talk.questions}}
     {{#each talk.questions}}
-        
         <h5>{{question}}</h5>
         <p style="border-bottom:solid Black;">Posted By: {{user.name}} on {{format_date created}}</p>
     {{/each}}
 {{/if}}
 
+{{!-- ask question section --}}
 <form> 
     <label for="question"> Please ask your question <br> </label>
     <input type="text" id="question" style="background-color:#FAEAB1; border:none; border-radius:50px; height: 30px; width: 600px; padding-left:20px;"><br><br>
     <button id="questions" class="addTalkBtn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{name}}">Ask a Question</button>
 </form>
 
+{{!-- attend section --}}
 {{#if talk.attends}}
         <h2 style="text-decoration: underline; padding-top: 20px;">Attendance</h2>
     {{#each talk.attends}}
         <h5>{{user.name}}</h5>
     {{/each}}
 {{/if}}
-
 <button class="attend-btn addTalkBtn" title= "{{talk.talk_id}}" value="[{{#each talk.attends}}{{user_id}},{{/each}}]" id="{{user_id}}">Attend this Talk</button>
-
 <button id="{{talk.talk_id}}" name="{{user_id}}" title="{{#each talk.attends}}{{attend_id}},{{/each}}" value="{{#each talk.attends}}{{user_id}},{{/each}}"class="remove-attend-btn addTalkBtn">No Longer Attend this Talk</button>
 
+{{!-- adding js --}}
 <script src="/js/attend.js"></script>
