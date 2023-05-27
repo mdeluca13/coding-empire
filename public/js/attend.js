@@ -1,5 +1,4 @@
-// const testingArray = document.querySelector('#testing').value
-
+// attend talk functionality
 const questionButton = document.getElementById("questions");
 
 const addAttendance = async (event) => {
@@ -34,10 +33,9 @@ const addAttendance = async (event) => {
     
 }
 
-
 document.querySelector('.attend-btn').addEventListener('click', addAttendance);
 
-
+// remove attend functionality
 const removeAttend = async (event) => {
     event.preventDefault();
     const talkId = event.target.id
@@ -46,27 +44,11 @@ const removeAttend = async (event) => {
     const loginUserId = event.target.name
     attendIdArray = attendIdArray.split(',');
     userIdArray = userIdArray.split(',');
-    // for (var i = 0; i < attendIdArray.length -1; i++ ) {
-    //     attendIdArray[i] = Number(attendIdArray[i])
-    // }
-    // attendIdArray = attendIdArray.filter(element => typeof element === 'number');
-    // console.log("New array"+attendIdArray)
-    // console.log(Number(attendIdArray))
-    
-    console.log('talkid '+talkId)
-    console.log('attendIdArray '+attendIdArray)
-    console.log('userIdArray '+userIdArray)
-    console.log('loginUserId '+ loginUserId)
-    
 
     if (userIdArray.includes(loginUserId)){
-        console.log('Needs to be deleted')
         let userIndex = userIdArray.indexOf(loginUserId)
         userIndex = Number(userIndex)
         let attendId = attendIdArray[userIndex]
-        console.log('attendidfromarray '+attendId)
-        console.log('useridarray length '+ userIdArray.length)
-        console.log('userindex '+ userIndex)
         
         const response = await fetch(`/api/attend/${attendId}`, {
             method: 'DELETE',
@@ -88,19 +70,13 @@ const removeAttend = async (event) => {
 
 document.querySelector('.remove-attend-btn').addEventListener('click', removeAttend);
 
+// ask question functionality
 const askQuestions = async (event) => {
     event.preventDefault();
-    //var texbox = document.createElement("question-box");
-    //texbox.setAttribute("type", "text");
-    //document.body.appendChild(texbox);
 
     const questionEl = document.getElementById("question");
-
     const question = questionEl.value;
-
     const talk_id = document.getElementById("questions").title;
-
-
     let created = new Date().toJSON();
 	console.log(created);
 

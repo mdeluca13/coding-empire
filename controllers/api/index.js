@@ -1,3 +1,4 @@
+// setting routes
 const router = require('express').Router();
 const questionRoutes = require('./questionRoutes');
 const talkRoutes = require('./talkRoutes');

@@ -2,9 +2,10 @@ const router = require("express").Router();
 const {User, Talk, Question} = require("../models");
 const withAuth = require("../utils/auth");
 
+// homepage get all talks route
 router.get("/", async (req, res) => {
     const talkData = await Talk.findAll( {
-        attributes: ["talk_id", "name", "description", "date", "user_id"],
+        attributes: ["talk_id", "name", "description", "date", "location", "user_id"],
         include: [
             {
             model: User,
@@ -26,17 +27,16 @@ router.get("/", async (req, res) => {
     })
 });
 
-router.get("/login", (req, res) => {
-    
+// login get
+router.get("/login", (req, res) => { 
     if (req.session.logged_in){
         res.redirect("/");
         return;
     }
-
     res.render("login");
-    
 });
 
+// dashboard get
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
 		const currentUser = await User.findByPk(req.session.user_id, {

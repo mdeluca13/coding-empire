@@ -4,24 +4,25 @@
     <div class="row justify-content-center">
         <div class="col-7">
             <label>Name of Talk</label>
-            <input id="update-name" class="form-control" type="text" id="title" value="{{talk.name}}">
+            <input id="update-name" class="form-control" type="text" id="title" value="{{talk.name}}" style="background-color:#FAEAB1; border:none; border-radius:50px; height: 20px; width: 600px; padding-left:20px;">
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-7">
             <label>Description</label>
-            <input id="update-description" class="form-control" type="text" id="content" value="{{talk.description}}">
+            <input id="update-description" class="form-control" type="text" id="content" value="{{talk.description}}" style="background-color:#FAEAB1; border:none; border-radius:50px; height: 20px; width: 600px; padding-left:20px; margin-top:20px;">
         </div>
     </div>
     <div class="container-fluid" style="width: 30%">
         <div class="row justify-content-center">
-            <button class="btn btn-dark talk-id" value="{{talk.talk_id}}"id="update-talk" >Update Talk</button>
+            <button class="btn btn-dark talk-id addTalkBtn" value="{{talk.talk_id}}"id="update-talk" >Update Talk</button>
         </div>
         <div class="row text-center">
-            <a href="/dashboard" class="talk-id" value="{{talk.talk_id}}" style="color:red" id="delete-btn">Delete Talk</a>
+            <a href="/dashboard" class="talk-id addTalkBtn" value="{{talk.talk_id}}" style="color:red; margin-top:40px;" id="delete-btn">Delete Talk</a>
         </div>
     </div>
 </div>
 
+{{!-- adding js files --}}
 <script src="/js/updatetalk.js"></script>
 <script src="/js/deletetalk.js"></script>

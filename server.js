@@ -1,3 +1,4 @@
+// Requiring what is needed
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -11,8 +12,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// adding helpers
 const hbs = exphbs.create({ helpers });
 
+// Adding session
 const sess = {
   secret: 'Super secret secret',
   cookie: {

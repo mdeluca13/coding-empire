@@ -1,3 +1,4 @@
+// Attend data to seed
 const { Attend } = require('../models');
 
 const attendData = [

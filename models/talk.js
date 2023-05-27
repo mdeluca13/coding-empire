@@ -19,13 +19,17 @@ Talk.init(
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     date: {
+      type: DataTypes.DATE,
+    },
+    location: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'user_id',

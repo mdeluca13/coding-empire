@@ -1,11 +1,9 @@
 const router =  require("express").Router();
-
 const { Talk, Question, User, Attend } = require("../../models");
-
 const withAuth = require("../../utils/auth");
 
+// getting talk by id for dashboard routes
 router.get('/:id', withAuth, async (req, res) => {
-
     const talkData = await Talk.findByPk(req.params.id, {
         include: [
             {
@@ -46,22 +44,19 @@ router.get('/:id', withAuth, async (req, res) => {
             },
         ],
     })
+
     const attend = attendData.map((attend) => attend.get({ plain: true }));
-    
     const user = userData.get({ plain: true });
     const talk = talkData.get({ plain: true });
-    console.log(talk)
-    console.log('_________________')
-    console.log(user)
-    console.log(attend)
+
     res.render('updatetalk', {
         ...user,
         talk,
         logged_in: req.session.logged_in,
     })
-    // .catch((error) => {res.status(500).json(error)});
 });
 
+// edit talk route
 router.put('/:id', (req, res) => {
     Talk.update(
       {

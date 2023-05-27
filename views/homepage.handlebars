@@ -1,29 +1,21 @@
-{{!-- 
-{{#each users as |user| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{{get_emoji}}} {{user.name}}</h2>
-  </div>
-  <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
-  </div>
-</div>
-{{/each}} --}}
-
-<h2 class="card-header text-center">Talks</h2>
+{{!-- Homepage listing talks --}}
+<h1 class="homepageTitle">Talks</h2>
 {{#each talk as |talk|}}
-    <a href="/api/talk/{{talk.talk_id}}" style="text-decoration:none">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="card col-9">
-                    <h5 class="card-header" style="color:black">{{talk.name}}</h5>
-                    <div class="card-body">
-                        <h5 class="card-title" style="color:black">{{talk.description}}</h5>
-                        <p class="card-text" style="color:black">Talk Given By: {{talk.user.name}}</p>
-                        <p style="color:black">Where: {{talk.date}}</p>
-                    </div>
-                </div> 
-            </div>  
+  <a href="/api/talk/{{talk.talk_id}}" class="">
+    <div class="postingArea">
+      <h3 class="postTitle" style="color:black">{{talk.name}}</h3>
+      <div class="card-body">
+        <h5 class="postQuestion" style="color:black">{{talk.description}}</h5>
+        <div class="talkDetails">
+          <p>This talk will be given by: {{talk.user.name}}</p>
+          {{#if talk.date}}
+            <p style="color:black">Where: {{talk.location}} on {{format_date talk.date}}</p>
+            <p style="color:black">Days until talk: {{distance talk.date}}</p>
+          {{else}}
+            <p style="color:black">{{talk.location}}</p>
+          {{/if}} 
         </div>
-    </a>
+      </div>
+    </div> 
+  </a>
 {{/each}}

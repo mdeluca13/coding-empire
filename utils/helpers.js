@@ -1,17 +1,23 @@
+// Helper functions
 module.exports = {
-    format_time: (date) => {
-      return date.toLocaleTimeString();
-    },
-    format_date: (date) => {
-      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
-        new Date(date).getFullYear()
-      }`;
-    },
-    compare: function (var1, var2) {
-        if (var1.includes(var2)) {
-          return true
-        } else {
-          return false
-        }
-    },
+  // Format date helper function
+  format_date: (date) => {
+    const format = require('date-fns/format')
+    if (date == null){
+      return 'TBD';
+    }
+    else {
+      return format(new Date(date), 'MMMM do', ' yyyy',);
+    }
+  },
+  // Format date distance from talk helper function
+  distance: (date) => {
+    const formatDistanceStrict = require('date-fns/formatDistanceStrict');
+    if (date == null){
+      return 'TBD';
+    }
+    else {
+      return formatDistanceStrict(new Date(), date, {unit: 'day'});
+    }
+  }
 };

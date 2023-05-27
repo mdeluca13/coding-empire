@@ -69,13 +69,13 @@ a{
     text-decoration: none;
 }
 
-.events:hover{
+.dashboard:hover{
     background-color: #C58940;
     color: #FAF8F1;
     border-radius: 50px;
 }
 
-.upcoming:hover{
+.logout:hover{
     background-color: #C58940;
     color: #FAF8F1;
     border-radius: 50px;
@@ -87,7 +87,7 @@ a{
     border-radius: 50px;
 }
 
-.signup:hover{
+.login:hover{
     background-color: #C58940;
     color: #FAF8F1;
     border-radius: 50px;
@@ -98,36 +98,52 @@ a{
 /*<-----------Main------------> */
 
 main{
-    padding-top: 20px;
-    padding-left: 300px;
-    padding-right: 300px;
-}
-
-.postingArea{
-    background-color: #FAEAB1;
-    box-shadow: 6px 6px 10px rgba(0,0,0,0.5);
+    margin-top: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
     margin-bottom: 20px;
 }
 
-.postTitle{
+.homepageTitle{
+    font-family: evilEmpire;
+    font-weight: 100;
+    border-bottom: solid black;
+}
+
+a div.postingArea{
+    border-radius: 10px;
+    background-color: #FAEAB1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    transition: box-shadow 0.2s ease-in-out;
+    margin-bottom: 20px;
+}
+
+h3.postTitle{
     margin-left: 20px;
     margin-right: 20px;
     padding-top: 20px;
+    margin-bottom: 20px;
     font-family: evilEmpire;
+    font-size: 50px;
     border-bottom: solid;
 }
 
-.postQuestion p{ 
+.postQuestion{ 
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 10px;
     padding-top: 10px;
-    padding-bottom: 10px;
-    font-family: Merriweather;
+    font-family: HelveticaNeue;
+    font-weight: 700;
     font-size: 20px;
 }
 
-.postAnswers{
-    padding-bottom: 20px;
+.talkDetails{
+    font-family: HelveticaNeue;
+    color: black;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 10px;
 }
 
 .answersTitle{
@@ -138,9 +154,33 @@ main{
     border-bottom: dashed;
 }
 
+a div.postingArea:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+a div.postingArea:active{
+    animation: out-fade 1s timing-function delay iteration-count direction fill-mode;
+}
 /*<-----------Login------------> */
 
+.loginSignup{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.loginArea{
+    border-right: solid black;
+    margin-right: 20px;
+}
+
+.loginTitle{
+    font-family: evilEmpire;
+}
+
 .loginInput input{
+    width: 80%;
     font-size: 20px;
     border-radius: 50px;
     background-color: #FAEAB1;
@@ -151,6 +191,7 @@ main{
     border: none;
 }
 .passwordInput input{
+    width: 80%;
     font-size: 20px;
     border-radius: 50px;
     background-color: #FAEAB1;
@@ -168,6 +209,7 @@ main{
     background-color: #FAEAB1;
     font-family: evilEmpire;
     text-align: center;
+    align-items: center;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -179,20 +221,187 @@ main{
     color: #FAF8F1;
 }
 
-.accountCreation{
+.SignupArea{
+    margin-left: 100px;
+}
+
+.nameSignupInput input{
+    width: 80%;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: #FAEAB1;
+    font-family: Merriweather;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.emailSignupInput input{
+    width: 80%;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: #FAEAB1;
+    font-family: Merriweather;
+    text-align: center;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.exampleInputPassword{
+    display:none;
+}
+
+.passwordSignupInput input{
+    width: 80%;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: #FAEAB1;
+    font-family: Merriweather;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+/*<-----------DashBoard------------> */
+
+.dashTitle{
+    font-family: evilEmpire;
+    border-bottom:  solid black;
+}
+
+.addTalkBtn{    
     font-size: 20px;
     border-radius: 50px;
     background-color: #FAEAB1;
     font-family: evilEmpire;
     text-align: center;
-    color: black;
-    padding: 10px;
-    margin-top: 50px;
-    margin-bottom: 5px;
     border: none;
+    padding: 10px;
 }
 
-.accountCreation:hover{
+.addTalkBtn:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+}
+
+
+
+/*<-----------Talk Page------------> */
+
+.talkOverall{
+    margin-bottom: 20px;
+    animation: up-fade 1s cubic-bezier(.25,.1,.25,1);
+}
+
+.talkPageTitle{
+    background-color: #C58940;
+    padding-top: 100px;
+    font-family: evilEmpire;
+    font-weight:100;
+    color: black;
+    padding-left: 20px;
+}
+
+.talkPageDetails{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.talkPageDesc{
+    font-size: 20px;
+}
+
+.talkPageUserArea h2{
+    font-family: EvilEmpire; 
+    font-size: 20px;
+}
+
+.questionAccordion{
+    font-family: EvilEmpire; 
+    font-size: 20px;
+    background-color: #C58940;
+    color: #444;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.active, .questionAccordion:hover { 
+    color: white;
+}
+
+.questionArea{
+    display: none;
+    background-color: #E5BA73;
+    overflow: hidden;
+}
+
+.submittedQuestion{
+    padding-top: 20px;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 13fr;
+}
+
+#questionTextbox{
+    width: 817px;
+    height: 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #FAEAB1;
+    font-family: HelveticaNeue;
+}
+
+#questionTextbox::placeholder{
+    padding-left: 10px;
+}
+
+.userCredential{
+    padding-bottom: 20px;
+}
+
+.userCredential h3{
+    font-family: evilEmpire;
+    font-size: large;
+}
+
+.userCredential h5{
+    font-family: HelveticaNeue;
+}
+
+.attendees{
+    list-style-type: disc;
+    font-family: evilEmpire;
+    display: none;
+    background-color: #E5BA73;
+    overflow: hidden;
+}
+
+.attendBtn{
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: #FAEAB1;
+    font-family: evilEmpire;
+    text-align: center;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 300px;
+}
+
+.attendBtn:hover{
     background-color: #C58940;
     color: #FAF8F1;
 }
@@ -214,14 +423,37 @@ main{
     grid-template-columns: 2fr 1fr;
 }
 
-.footerBtn li{
+ul{
+    list-style-type: none;
+}
+
+.footerBtn a{
     list-style-type: none;
     padding:10px;
     font-family: EvilEmpire; 
     font-size: 20px;
 }
 
-.footerBtn li:hover{
+a.dashboard{
+    width: 80%;
+    font-family: evilEmpire;
+    padding-left: 10px;
+}
+
+.dashboard:hover{
+    background-color: #C58940;
+    color: #FAF8F1;
+    border-radius: 50px;
+}
+
+p#logout.login{
+    font-family: evilEmpire;
+}
+a {
+    color: black;
+}
+
+.footerBtn a:hover{
     background-color: #C58940;
     color: #FAF8F1;
     border-radius: 50px;
