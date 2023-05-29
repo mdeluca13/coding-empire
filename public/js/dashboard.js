@@ -1,15 +1,13 @@
-
+// Create talk function
 const createButton = document.getElementById("create");
 
 const createTalk = async (event) => {
     event.preventDefault();
 
 	let location = "A Location, Date and Time will be assigned to this new talk soon."
-	// console.log(date);
 
     const name = document.getElementById("talk-title").value;
     const description = document.getElementById("talk-description").value;
-	//const talkId = event.target.title;
 
     if (name && description) {
         const response = await fetch(`/api/talk`, {

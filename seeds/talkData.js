@@ -1,3 +1,4 @@
+// talk data to seed
 const { Talk } = require('../models');
 
 const talkData = [
