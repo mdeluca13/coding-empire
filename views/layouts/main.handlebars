@@ -72,37 +72,10 @@
     <footer class="footer" id="footer">
         <container class="footerNavbar">
             <div class="upperFooter">
-                <div class="navbarHome">
+                <div class="footerHome">
                     <img src="/Images/sand-castle.svg" alt="Castle" class="mainLogo" width="40" height="70">
                     <h1 class="navbarTitle">Coding Empire Conference</h1>
                 </div>
-                <ul class="footerBtn">
-                    {{#if logged_in}}
-                <li>
-                    <a href="/dashboard" class="dashboard">
-                 <p id="dash">
-                    DASHBOARD
-                </p>
-                </a>
-            </li>
-            <li>
-                <p id="logout" class="logout">
-                    Logout
-             </p>
-            </li>
-            
-                
-            
-
-        {{else}}
-        <li>
-            <a href="/login">
-                Sign Up/Login
-            </a>
-        </li>
-        
-        {{/if}}
-                </ul>
             </div>
             <div class="lowerFooter">
                 <p>&#169Copyright By Carleton BootCamp Students</p>

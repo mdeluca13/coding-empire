@@ -416,11 +416,19 @@ a div.postingArea:active{
 .footerNavbar{
     display: grid;
     grid-template-rows: 2fr auto;
+    align-items: center;
 }
 
 .upperFooter{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+width: 500px;
+padding-left: 450px ;
+}
+
+.footerHome{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding-right: 50px;
 }
 
 ul{
@@ -460,6 +468,6 @@ a {
 }
 
 .lowerFooter{
-    font-family: EvilEmpire; 
+    font-family: HelveticaNeue; 
     text-align: center;
 }
